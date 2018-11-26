@@ -10,12 +10,23 @@ package model;
  * @author Kbyte
  */
 public class Usuario {
+    private int id;
     private String login;
     private String senha;
 
     public String getLogin() {
         return login;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 
     public void setLogin(String login) {
         this.login = login;

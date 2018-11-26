@@ -24,7 +24,7 @@ public class Login extends Application {
     @Override //Anotação de sobrescrita
     public void start(Stage palco) throws Exception {
         //Setando o arquivo fxml que será aberto apartir desse método
-        Parent cenario = FXMLLoader.load(getClass().getResource("/view/LoginFXMLDocument.fxml"));
+        Parent cenario = FXMLLoader.load(getClass().getResource("/view/LoginFXML.fxml"));
         //Criando a cena e setando o cenario em seu construtor
         Scene scene = new Scene(cenario);         
         //Retirando a borda do windows
