@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="control.MenuController">
+<AnchorPane id="AnchorPane" prefHeight="359.0" prefWidth="910.0" style="-fx-background-color: linear-gradient(to bottom, rgba(12,30,59,1) 0%, rgba(73,93,125,1) 100%);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MenuController">
    <children>
-      <Label layoutX="221.0" layoutY="151.0" text="IMAGINE UM MENU FODA" />
+      <ImageView fitHeight="366.0" fitWidth="634.0" layoutX="324.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/image/carMenu.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="324.0" opacity="0.3" prefHeight="366.0" prefWidth="586.0" style="-fx-background-color: black;" />
+      <Label ellipsisString="Liquid" layoutX="759.0" layoutY="324.0" prefHeight="40.0" prefWidth="147.0" text="Liquid Team" textFill="#0c1e3b">
+         <font>
+            <Font name="Aharoni Bold" size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="72.0" fitWidth="71.0" layoutX="795.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/image/logoLiquid.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="290.0" prefHeight="76.0" prefWidth="323.0" text=" Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/icons/logoutIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="HP Simplified" size="23.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="216.0" prefHeight="72.0" prefWidth="323.0" text="Carros" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font name="HP Simplified" size="23.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="42.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/icons/ferrariIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="144.0" prefHeight="72.0" prefWidth="323.0" text="Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font name="HP Simplified" size="23.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/icons/logoutIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="72.0" prefHeight="72.0" prefWidth="323.0" text="Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font name="HP Simplified" size="23.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/icons/logoutIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" prefHeight="72.0" prefWidth="323.0" text="Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font name="HP Simplified" size="23.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/icons/logoutIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
