@@ -22,7 +22,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,31 +53,39 @@ public class LoginController implements Initializable {
         //Recebendo dados dos campos login e senha
         String login = loginTextField.getText();
         String senha = passTextField.getText();
-
+        
+        //Abrindo conexão com o banco de dados
         Connection con = Conexao.AbrirConexão();
+        
+        //Criando objeto usuarioDAO e passando a conexão como parâmetro
         UsuarioDAO userDAO = new UsuarioDAO(con);
-
+        
+        //Se existir um usuário logado no banco ele entra aqui
         if (userDAO.logar(login, senha)) {
             Parent menu_parent = FXMLLoader.load(getClass().getResource("/view/MenuFXML.fxml"));
             Scene menu_scene = new Scene(menu_parent);
-            //Setando o palco apartir do palco anterior
+            
+            //Setando o palco a partir do palco anterior
             Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
             palco.setScene(menu_scene);
-        } else {
+            
+        } else {//Caso não exista usuário com o login e senha digitados ele entra aqui
+            //Apenas apagando as caixas e mandando mensagem de erro para o usuário
             loginTextField.setText("");
             passTextField.setText("");
             JOptionPane.showMessageDialog(null, "Login e/ou senha incorretos.");
         }
     }
-
+    
+    //Método do botão fechar
     @FXML
     private void handleSair(ActionEvent event) {
-        System.exit(0);
+        System.exit(0);//Fechando o aplicativo
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //TODO
     }
 
 }

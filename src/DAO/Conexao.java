@@ -19,9 +19,9 @@ public class Conexao {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost/db_concessionaria";
-            con = DriverManager.getConnection(url, "root", "");
+            con = DriverManager.getConnection(url, "root", "");         
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Deu ruim :" + e.getMessage());
+            JOptionPane.showMessageDialog(null,"Erro ao abrir conexão com o banco de dados");
         }
         return con;
     }
@@ -30,7 +30,7 @@ public class Conexao {
         try {
             con.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Deu ruim :" + e.getMessage());
+            JOptionPane.showMessageDialog(null,"Erro ao fechar conexão com o banco de dados");
         }
     }
 

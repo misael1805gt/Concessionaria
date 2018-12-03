@@ -23,7 +23,7 @@ public class Login extends Application {
     //Método que inicia a aplicação
     @Override //Anotação de sobrescrita
     public void start(Stage palco) throws Exception {
-        //Setando o arquivo fxml que será aberto apartir desse método
+        //Setando o arquivo fxml que será aberto a partir desse método
         Parent cenario = FXMLLoader.load(getClass().getResource("/view/LoginFXML.fxml"));
         //Criando a cena e setando o cenario em seu construtor
         Scene scene = new Scene(cenario);         

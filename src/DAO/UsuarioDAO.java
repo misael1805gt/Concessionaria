@@ -44,10 +44,11 @@ public class UsuarioDAO extends ExecuteSQL {
                     isUser = true;
                 }
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao logar");
             System.out.println("CAUSADO POR: " + e.getMessage());
         }
+        Conexao.FecharConexão(getCon());
         return isUser;
     }
 
