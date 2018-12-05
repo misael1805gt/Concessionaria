@@ -60,5 +60,7 @@ public class Carro {
 	public void setPreco(float preco) {
 		this.preco = preco;
 	}
-
+	public String toString(){
+		return ""+this.getNome()+" "+this.getFabricante();
+	}
 }
