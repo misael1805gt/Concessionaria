@@ -9,7 +9,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, rgba(12,30,59,1) 0%, rgba(73,93,125,1) 100%);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ListarCarrosController">
    <children>
       <JFXTextField fx:id="PesquisarField" layoutX="39.0" layoutY="35.0" onKeyTyped="#search" />
@@ -18,14 +17,14 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="39.0" layoutY="375.0" prefHeight="25.0" prefWidth="67.0" ripplerFill="WHITE" style="-fx-background-color: white;" text="Excluir" textOverrun="CENTER_ELLIPSIS">
+      <JFXButton buttonType="RAISED" layoutX="39.0" layoutY="375.0" prefHeight="31.0" prefWidth="88.0" ripplerFill="WHITE" style="-fx-background-color: white;" text="Excluir" textOverrun="CENTER_ELLIPSIS">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="EditarButton" buttonType="RAISED" layoutX="143.0" layoutY="376.0" prefHeight="25.0" prefWidth="88.0" ripplerFill="WHITE" style="-fx-background-color: white;" text="Editar">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
          <effect>
             <Lighting>
@@ -43,7 +42,7 @@
       </JFXButton>
       <JFXButton fx:id="VoltarButton" buttonType="RAISED" layoutX="503.0" layoutY="378.0" ripplerFill="WHITE" style="-fx-background-color: f20000;" text="Voltar">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
       <TableView fx:id="TabelaCarros" layoutX="39.0" layoutY="88.0" prefHeight="276.0" prefWidth="529.0">
