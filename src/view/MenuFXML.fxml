@@ -51,7 +51,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="cadastroBTN" onAction="#handlerGoCadastrar" alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="144.0" prefHeight="72.0" prefWidth="323.0" text=" Cadastrar" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+      <JFXButton fx:id="cadastroBTN" alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="144.0" onAction="#handlerGoCadastrar" prefHeight="72.0" prefWidth="323.0" text=" Cadastrar" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <font>
             <Font name="HP Simplified" size="23.0" />
          </font>
@@ -63,7 +63,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="72.0" prefHeight="72.0" prefWidth="323.0" text="Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+      <JFXButton alignment="CENTER" onAction="#logout" ellipsisString="" layoutX="1.0" layoutY="72.0" prefHeight="72.0" prefWidth="323.0" text="Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <font>
             <Font name="HP Simplified" size="23.0" />
          </font>
