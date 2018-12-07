@@ -84,6 +84,10 @@ public class ListarCarrosController implements Initializable {
 		
 		return obsCategorias;
 	}
+	public void selectCarro(Carro car) {
+		System.out.print(car.getNome());
+		//Façam o que quiserem com essa parada
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -98,6 +102,7 @@ public class ListarCarrosController implements Initializable {
 		Connection con = Conexao.AbrirConexÃ£o();
 		ArrayList<Carro> carros = new CarroDAO(con).getCarroLista();
 		TabelaCarros.setItems(getObservableList(carros));
+		TabelaCarros.getSelectionModel().selectedItemProperty().addListener((observable,oldValue,newValue)->selectCarro(newValue));
 		
 	}
 }
