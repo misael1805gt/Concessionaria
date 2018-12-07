@@ -86,7 +86,7 @@ public class ListarCarrosController implements Initializable {
 	}
 	public void selectCarro(Carro car) {
 		System.out.print(car.getNome());
-		//Façam o que quiserem com essa parada
+		//FaÃ§am o que quiserem com essa parada
 	}
 
 	@Override
