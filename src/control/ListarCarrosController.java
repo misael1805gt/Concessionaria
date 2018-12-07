@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ListarCarrosController implements Initializable {
 	
@@ -79,21 +80,24 @@ public class ListarCarrosController implements Initializable {
 		
 	}
 	private ObservableList<Carro> getObservableList(ArrayList<Carro> carros){
-		ObservableList<Carro> obsCategorias = FXCollections.emptyObservableList();
-		for(Carro c:carros) {
-			System.out.println("pegou");
-			obsCategorias.add(c);
-			
-		}
+		ObservableList<Carro> obsCategorias = FXCollections.observableArrayList(carros);
+		
 		return obsCategorias;
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		
+		//Nome Fabricante Ano Preco
+		nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		FabricanteCol.setCellValueFactory(new PropertyValueFactory<>("fabricante"));
+		AnoCol.setCellValueFactory(new PropertyValueFactory<>("ano"));
+		PrecoCol.setCellValueFactory(new PropertyValueFactory<>("preco"));
 		System.out.println("Mostra as coisaOpora");
 		Connection con = Conexao.AbrirConexão();
 		ArrayList<Carro> carros = new CarroDAO(con).getCarroLista();
 		TabelaCarros.setItems(getObservableList(carros));
+		
 	}
 }

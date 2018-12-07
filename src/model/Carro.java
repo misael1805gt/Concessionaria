@@ -19,7 +19,7 @@ public class Carro {
 	public Carro() {
 		
 		
-	};
+	}
 	public Carro(String nome, String ano, String fabricante, float preco) {
 		this.setAno(ano);
 		this.setFabricante(fabricante);
