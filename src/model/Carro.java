@@ -14,7 +14,18 @@ public class Carro {
 	private float preco;
 	/**
 	 * @return the nome
+	 * 
 	 */
+	public Carro() {
+		
+		
+	}
+	public Carro(String nome, String ano, String fabricante, float preco) {
+		this.setAno(ano);
+		this.setFabricante(fabricante);
+		this.setNome(nome);
+		this.setPreco(preco);
+	}
 	public String getNome() {
 		return nome;
 	}
