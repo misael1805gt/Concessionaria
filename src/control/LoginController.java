@@ -39,15 +39,6 @@ public class LoginController implements Initializable {
     private JFXTextField loginTextField;
 
     @FXML
-    private JFXButton loginBtn;
-
-    @FXML
-    private JFXButton signUpBtn;
-
-    @FXML
-    private JFXButton sairBTN;
-
-    @FXML
     protected void handleLogin(ActionEvent event) throws IOException {
 
         //Recebendo dados dos campos login e senha
