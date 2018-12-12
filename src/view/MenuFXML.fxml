@@ -27,7 +27,7 @@
             <Image url="@../resources/image/logoLiquid.jpg" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="290.0" prefHeight="76.0" prefWidth="323.0" text=" Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+      <JFXButton fx:id="logoutBTN" alignment="CENTER" ellipsisString="" layoutY="290.0" onAction="#logout" prefHeight="76.0" prefWidth="323.0" text=" Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,7 +39,7 @@
             <Font name="HP Simplified" size="23.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="216.0" prefHeight="72.0" prefWidth="323.0" text="Carros" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+      <JFXButton fx:id="listarBTN" alignment="CENTER" ellipsisString="" layoutY="216.0" onAction="#handlerGoListar" prefHeight="72.0" prefWidth="323.0" text="Carros" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <font>
             <Font name="HP Simplified" size="23.0" />
          </font>
@@ -51,41 +51,31 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="144.0" prefHeight="72.0" prefWidth="323.0" text="Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+      <JFXButton fx:id="cadastroBTN" alignment="CENTER" ellipsisString="" layoutY="144.0" onAction="#handlerGoCadastrar" prefHeight="72.0" prefWidth="323.0" text=" Cadastrar" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <font>
             <Font name="HP Simplified" size="23.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="21.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/icons/logoutIcon.png" />
+                  <Image url="@../resources/icons/cadastroIcon.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" layoutY="72.0" prefHeight="72.0" prefWidth="323.0" text="Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
-         <font>
-            <Font name="HP Simplified" size="23.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="21.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+      <Pane prefHeight="142.0" prefWidth="324.0" style="-fx-border-color: transparent transparent white transparent;">
+         <children>
+            <Label ellipsisString="" layoutX="107.0" layoutY="100.0" prefHeight="27.0" prefWidth="119.0" text="Administrador" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Aharoni Bold" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="86.0" fitWidth="88.0" layoutX="124.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/icons/logoutIcon.png" />
+                  <Image url="@../resources/icons/admIcon.png" />
                </image>
             </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton alignment="CENTER" ellipsisString="" layoutX="1.0" prefHeight="72.0" prefWidth="323.0" text="Logout" textFill="WHITE" textOverrun="CLIP" wrapText="true">
-         <font>
-            <Font name="HP Simplified" size="23.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="21.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/icons/logoutIcon.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

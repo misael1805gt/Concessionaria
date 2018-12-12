@@ -6,7 +6,6 @@
 package control;
 
 import DAO.Conexao;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -37,15 +36,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private JFXTextField loginTextField;
-
-    @FXML
-    private JFXButton loginBtn;
-
-    @FXML
-    private JFXButton signUpBtn;
-
-    @FXML
-    private JFXButton sairBTN;
 
     @FXML
     protected void handleLogin(ActionEvent event) throws IOException {
