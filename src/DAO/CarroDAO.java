@@ -40,12 +40,12 @@ public class CarroDAO extends ExecuteSQL {
     public boolean AlterarCarro(int pk_ve, String newNome, String newAno, String newFabricante, float newPreco) {
             // criando o codigo sql para trabalhar com o banco
         String consulta
-                = "UPDATE carro SET "
-                + "nome = '" + newNome + "', "
-                + " ano = '" + newAno + "', "
-                + " fabricante = '" + newFabricante + "', "
-                + "preco = '" + newPreco + "'"
-                + "  WHERE pk_niv = '" + pk_ve + "'";
+                = "UPDATE carro SET"
+                + " nome = '" + newNome + "',"
+                + " ano = '" + newAno + "',"
+                + " fabricante = '" + newFabricante + "',"
+                + " preco = '" + newPreco + "'"
+                + " WHERE pk_niv = '" + pk_ve + "'";
         try {
             PreparedStatement ps = getCon().prepareStatement(consulta);           
             //Realizando um teste para ver se a Execução da consulta no banco deu certo, ele retorna 1 se der certo
@@ -72,7 +72,7 @@ public class CarroDAO extends ExecuteSQL {
                 + "fabricante,"
                 + " preco"
                 + ") " 
-                + "SELECT COUNT(pk_niv) +1 , '"+nomeCarro+"', '"+ano+"', '"+fabricante+"', "+preco+" FROM carro";
+                + "SELECT COUNT(pk_niv) +1, '"+nomeCarro+"', '"+ano+"', '"+fabricante+"', "+preco+" FROM carro";
         try {
             PreparedStatement ps = getCon().prepareStatement(consulta);
              //Realizando um teste para ver se a Execução da consulta no banco deu certo, ele retorna 1 se der certo
