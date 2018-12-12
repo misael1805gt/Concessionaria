@@ -21,7 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ListarCarrosController implements Initializable {
-
+	
 	@FXML
 	private ResourceBundle resources;
 
@@ -55,6 +55,8 @@ public class ListarCarrosController implements Initializable {
 	@FXML
 	private TableView<Carro> TabelaCarros;
 
+        Carro carroSelecionado;
+        
 	@FXML
 	void search(ActionEvent event) {
 
@@ -77,14 +79,13 @@ public class ListarCarrosController implements Initializable {
 		
 		return obsCategorias;
 	}
+        //Armazenando o carro selecionado na classe, pois o método excluir e editar irão manipulá-lo
 	public void selectCarro(Carro car) {
-		System.out.print(car.getNome());
+		this.carroSelecionado = car;
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
 		//Nome Fabricante Ano Preco
 		nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		FabricanteCol.setCellValueFactory(new PropertyValueFactory<>("fabricante"));
@@ -95,6 +96,5 @@ public class ListarCarrosController implements Initializable {
 		ArrayList<Carro> carros = new CarroDAO(con).getCarroLista();
 		TabelaCarros.setItems(getObservableList(carros));
 		TabelaCarros.getSelectionModel().selectedItemProperty().addListener((observable,oldValue,newValue)->selectCarro(newValue));
-		
 	}
 }
