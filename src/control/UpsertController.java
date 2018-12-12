@@ -73,42 +73,72 @@ public class UpsertController implements Initializable {
 
     @FXML
     private void handlerSalvarBTN(ActionEvent event) throws IOException {
+
         //Capturando valor dos TextFields
         String nomeCarro = nomeTextField.getText();
         String fabricante = fabricanteTextField.getText();
         String ano = anoTextField.getText();
-        //Convertendo o valor de String que vem do TextField para float, valor que o banco de dados pede.
-        float preco = Float.parseFloat(precoTextField.getText());
 
-        if (carro == null) {//Se não tiver nada dentro do objeto é porque o usuário irá cadastrar
-            
-            boolean cadastrado = carroDAO.CadastrarCarro(nomeCarro, ano, fabricante, preco);
+        float preco = 0;
 
-            if (cadastrado) {
-                JOptionPane.showMessageDialog(null, "Carro cadastrado com sucesso");
-            } else {
-                JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR O CARRO !!");
-            }
-
-        } else {////Se tiver algo dentro do objeto é porque o usuário irá editar
-
-            boolean editado = carroDAO.AlterarCarro(carro.getId(), nomeCarro, ano, fabricante, preco);
-
-            if (editado) {
-                JOptionPane.showMessageDialog(null, "Carro editado com sucesso");
-            } else {
-                JOptionPane.showMessageDialog(null, "ERRO AO EDITAR O CARRO !!");
-            }
+        //Forçar o usuário a colocar somente números no campo preço
+        try {
+            //Operador ternário -> (Expressão) ? retorno caso true : retorno caso false
+            //Se o campo preço estiver vazio ele retorna 0, se não retorna o valor convertido de String para float
+            preco = ("".equals(precoTextField.getText())) ? 0 : Float.parseFloat(precoTextField.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Só é permitido números no campo preço !");
+            precoTextField.clear();//Limpa o campo
         }
 
-        //Retornando para a tela de listagem
+        //O ano deve estar no formato(XXXX/XXXX) tal que X pertence aos naturais não negativos 
+        if (!"".equals(nomeCarro) && !"".equals(fabricante) && preco != 0 && ano.length() == 9) {
+
+            //Convertendo o valor de String que vem do TextField para float, valor que o banco de dados pede.
+            if (carro == null) {//Se não tiver nada dentro do objeto é porque o usuário irá cadastrar
+
+                boolean cadastrado = carroDAO.CadastrarCarro(nomeCarro, ano, fabricante, preco);
+
+                if (cadastrado) {
+                    JOptionPane.showMessageDialog(null, "Carro cadastrado com sucesso");
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR O CARRO !!");
+                }
+            } else {////Se tiver algo dentro do objeto é porque o usuário irá editar
+
+                boolean editado = carroDAO.AlterarCarro(carro.getId(), nomeCarro, ano, fabricante, preco);
+
+                if (editado) {
+                    JOptionPane.showMessageDialog(null, "Carro editado com sucesso");
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERRO AO EDITAR O CARRO !!");
+                }
+            }
+
+            //Aqui o programa poderia somente limpar os campos, mas como o objetivo é lecionar JavaFX o programa retornará para a tela menu.    
+            //Retornando para a tela de Menu
+            Parent menu_parent = FXMLLoader.load(getClass().getResource("/view/MenuFXML.fxml"));
+            Scene menu_scene = new Scene(menu_parent);
+
+            //Setando o palco a partir do palco anterior
+            Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            palco.setScene(menu_scene);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos corretamente");
+        }
+    }
+
+    @FXML
+    private void handlerExitBTN(ActionEvent event) throws IOException {
+        //Retornando para a tela de menu
         Parent menu_parent = FXMLLoader.load(getClass().getResource("/view/MenuFXML.fxml"));
         Scene menu_scene = new Scene(menu_parent);
 
         //Setando o palco a partir do palco anterior
         Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         palco.setScene(menu_scene);
-
     }
-
 }
