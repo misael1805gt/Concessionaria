@@ -6,7 +6,6 @@
 package control;
 
 import DAO.Conexao;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;

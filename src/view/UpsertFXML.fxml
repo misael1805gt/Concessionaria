@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="640.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.UpsertController">
+<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="640.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="-3.0" prefHeight="350.0" prefWidth="653.0" style="-fx-background-color: linear-gradient(to bottom, rgba(12,30,59,1) 0%, rgba(73,93,125,1) 100%);">
          <children>

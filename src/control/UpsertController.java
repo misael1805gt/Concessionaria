@@ -49,12 +49,6 @@ public class UpsertController implements Initializable {
     //Objeto que será usado na hora de editar
     Carro carro;
 
-    //Criando conexao 
-    Connection conexao = Conexao.AbrirConexão();
-
-    //Criando o objeto CarroDAO que se conectará com o banco e realizará a função de cadastrar
-    CarroDAO carroDAO = new CarroDAO(conexao);
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (this.carro != null) { //Se for editar
@@ -93,6 +87,12 @@ public class UpsertController implements Initializable {
 
         //O ano deve estar no formato(XXXX/XXXX) tal que X pertence aos naturais não negativos 
         if (!"".equals(nomeCarro) && !"".equals(fabricante) && preco != 0 && ano.length() == 9) {
+
+            //Criando conexao 
+            Connection conexao = Conexao.AbrirConexão();
+
+            //Criando o objeto CarroDAO que se conectará com o banco e realizará a função de cadastrar
+            CarroDAO carroDAO = new CarroDAO(conexao);
 
             //Convertendo o valor de String que vem do TextField para float, valor que o banco de dados pede.
             if (carro == null) {//Se não tiver nada dentro do objeto é porque o usuário irá cadastrar

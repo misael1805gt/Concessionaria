@@ -35,12 +35,15 @@ public class MenuController implements Initializable {
 
     @FXML
     void handlerGoCadastrar(ActionEvent event) throws IOException {
-        Parent menu_parent = FXMLLoader.load(getClass().getResource("/view/UpsertFXML.fxml"));
-        Scene menu_scene = new Scene(menu_parent);
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/view/UpsertFXML.fxml"));
+            //Setando o controller que precisou ser retirado para passar o objeto pelo construtor na edição
+            fxmlloader.setController(new UpsertController());
 
-        //Setando o palco a partir do palco anterior
-        Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        palco.setScene(menu_scene);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Carregando o fxml na scene:
+            stage.setScene(new Scene(fxmlloader.load()));
+            stage.show();
     }
 
     @FXML
@@ -55,7 +58,12 @@ public class MenuController implements Initializable {
 
     @FXML
     void handlerGoListar(ActionEvent event) throws IOException {
+        Parent menu_parent = FXMLLoader.load(getClass().getResource("/view/ListarCarrosFXML.fxml"));
+        Scene menu_scene = new Scene(menu_parent);
 
+        //Setando o palco a partir do palco anterior
+        Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        palco.setScene(menu_scene);
     }
 
     @Override

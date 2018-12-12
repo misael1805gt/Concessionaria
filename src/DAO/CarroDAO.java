@@ -24,6 +24,7 @@ public class CarroDAO extends ExecuteSQL {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Carro carro = new Carro();
+                carro.setId(rs.getInt(1));
                 carro.setNome(rs.getString("NOME"));
                 carro.setAno(rs.getString("ANO"));
                 carro.setFabricante(rs.getString("FABRICANTE"));
@@ -38,7 +39,7 @@ public class CarroDAO extends ExecuteSQL {
     }
 
     public boolean AlterarCarro(int pk_ve, String newNome, String newAno, String newFabricante, float newPreco) {
-            // criando o codigo sql para trabalhar com o banco
+        // criando o codigo sql para trabalhar com o banco
         String consulta
                 = "UPDATE carro SET"
                 + " nome = '" + newNome + "',"
@@ -47,9 +48,9 @@ public class CarroDAO extends ExecuteSQL {
                 + " preco = '" + newPreco + "'"
                 + " WHERE pk_niv = '" + pk_ve + "'";
         try {
-            PreparedStatement ps = getCon().prepareStatement(consulta);           
+            PreparedStatement ps = getCon().prepareStatement(consulta);
             //Realizando um teste para ver se a Execução da consulta no banco deu certo, ele retorna 1 se der certo
-            if (ps.executeUpdate()>0) {
+            if (ps.executeUpdate() > 0) {
                 Conexao.FecharConexão(getCon());
                 return true;
             }
@@ -60,9 +61,9 @@ public class CarroDAO extends ExecuteSQL {
         Conexao.FecharConexão(getCon());
         return false;
     }
-    
-        public boolean CadastrarCarro(String nomeCarro, String ano, String fabricante, float preco) {
-            // criando o codigo sql para trabalhar com o banco
+
+    public boolean CadastrarCarro(String nomeCarro, String ano, String fabricante, float preco) {
+        // criando o codigo sql para trabalhar com o banco
         String consulta
                 = "INSERT INTO carro "
                 + "("
@@ -71,17 +72,42 @@ public class CarroDAO extends ExecuteSQL {
                 + "ano, "
                 + "fabricante,"
                 + " preco"
-                + ") " 
-                + "SELECT COUNT(pk_niv) +1, '"+nomeCarro+"', '"+ano+"', '"+fabricante+"', "+preco+" FROM carro";
+                + ") "
+                + "VALUES"
+                + "("
+                + "0, '"
+                + "" + nomeCarro + "',"
+                + " '" + ano + "',"
+                + " '" + fabricante + "',"
+                + " " + preco 
+                + ")";
         try {
             PreparedStatement ps = getCon().prepareStatement(consulta);
-             //Realizando um teste para ver se a Execução da consulta no banco deu certo, ele retorna 1 se der certo
-            if (ps.executeUpdate()>0) {
+            //Realizando um teste para ver se a Execução da consulta no banco deu certo, ele retorna 1 se der certo
+            if (ps.executeUpdate() > 0) {
                 Conexao.FecharConexão(getCon());
                 return true;
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao Cadastrar");
+            System.out.println("CAUSADO POR: " + e.getMessage());
+        }
+        Conexao.FecharConexão(getCon());
+        return false;
+    }
+
+    public boolean ExcluirCarro(int pk_niv) {
+        // criando o codigo sql para trabalhar com o banco
+        String consulta = "DELETE FROM carro WHERE pk_niv = "+pk_niv;
+        try {
+            PreparedStatement ps = getCon().prepareStatement(consulta);
+            //Realizando um teste para ver se a Execução da consulta no banco deu certo, ele retorna 1 se der certo
+            if (ps.executeUpdate() > 0) {
+                Conexao.FecharConexão(getCon());
+                return true;
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao Excluir");
             System.out.println("CAUSADO POR: " + e.getMessage());
         }
         Conexao.FecharConexão(getCon());
